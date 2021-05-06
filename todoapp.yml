@@ -1,10 +1,11 @@
 - name: set up todoapp project
   hosts: all
+  become: yes
   tasks:
     - name: apt update
       apt:
         name: nginx
         update_cache: yes
-        
+
 
 
