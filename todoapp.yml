@@ -1,18 +1,23 @@
 - name: set up todoapp project
   hosts: all
   become: yes
-  tasks:
-    - name: Install nginx
-      apt:
-        name: nginx
-        update_cache: yes
-        state: present
-    
-    - name: start service
-      systemd:
-        name: nginx
-        state: started
-        enabled: yes
+  roles:
+    - role: frontend
+      tags: frontend
+      when: COMPONENT == "frontend"
 
+    - role: login
+      tags: login
+      when: COMPONENT == "login"
 
+    - role: users
+      tags: users
+      when: COMPONENT == "users"
 
+    - role: todo
+      tags: todo
+      when: COMPONENT == "todo"
+
+    - role: redis
+      tags: redis
+      when: COMPONENT == "redis"
