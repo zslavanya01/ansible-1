@@ -1,0 +1,9 @@
+- name: Demo on vars
+  hosts: all
+  vars:
+    URL: play.example.com
+    PROJECT: example
+  tasks:
+    - name: print URL
+      debug:
+        msg: URL = {{ URL }}
