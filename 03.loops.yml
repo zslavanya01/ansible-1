@@ -1,0 +1,12 @@
+- name: demo on loops
+  hosts: all
+  tasks:
+    - name: print course names
+      debug:
+        msg: "course = {{item}}"
+      loop:
+        - azure
+        - devops
+        - aws
+        - java
+        - nodejs
