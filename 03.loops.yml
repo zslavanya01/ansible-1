@@ -31,7 +31,7 @@
         label: "{{ item.name }}"  
 
     - name: no.of courses
-      ansible.builtin.debug:
+      debug:
         msg: "{{ item }} with index {{ my_idx }}"
       loop:
         - azure
@@ -41,4 +41,4 @@
         - nodejs
       loop_control:
         index_var: my_idx
-        
+
