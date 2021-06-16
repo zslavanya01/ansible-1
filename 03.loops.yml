@@ -29,4 +29,15 @@
             nic01: 10Gb
       loop_control:
         label: "{{ item.name }}"  
-        
+
+    - name: no.of courses
+      ansible.builtin.debug:
+        msg: "{{ item }} with index {{ my_idx }}"
+      loop:
+        - azure
+        - devops
+        - aws
+        - java
+        - nodejs
+      loop_control:
+        index_var: my_idx
