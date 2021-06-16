@@ -27,4 +27,6 @@
           network:
             nic01: 100Gb
             nic01: 10Gb
+      loop_control:
+        label: "{{ item.name }}"  
         
