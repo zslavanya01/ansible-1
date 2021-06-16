@@ -3,7 +3,7 @@
   tasks:
     - name: print course names
       debug:
-        msg: "course = {{item}}"
+        msg: "course = {{ item }}"
       loop:
         - azure
         - devops
