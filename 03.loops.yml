@@ -10,4 +10,21 @@
         - aws
         - java
         - nodejs
+
+    - name: create servers
+      debug:
+        msg: "{{ iteam.name }}"
+      loop:
+        - name: server1
+          disks: 3gb
+          ram: 15Gb
+          network:
+            nic01: 100Gb
+            nic01: 10Gb
+        - name: server2
+          disks: 3gb
+          ram: 15Gb
+          network:
+            nic01: 100Gb
+            nic01: 10Gb
         
