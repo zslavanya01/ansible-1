@@ -4,8 +4,10 @@
     - name: print redhat
       debug:
         msg: Hello Redhat
+      when: OS == "Redhat"
 
     - name: print centos
       debug:
         msg: Hello Centos
+      when: OS == "Centos"
         
