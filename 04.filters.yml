@@ -1,0 +1,15 @@
+- name: Demo on filters
+  hosts: all
+  vars:
+    URL: https://github.com/zelar-soft-todoapp/frontend/archive/main.zip
+    tag_data:
+          Environment: dev
+          Application: payment
+  tasks:
+    - name: Print filename of a URL
+      debug:
+        msg: "{{ URL | urlsplit }}"
+
+    - name: print last column
+      debug:
+        msg: "{{ URL.split('/') | last }}"
