@@ -1,0 +1,11 @@
+- name: Demo on conditions
+  hosts: all
+  tasks:
+    - name: print redhat
+      debug:
+        msg: Hello Redhat
+
+    - name: print centos
+      debug:
+        msg: Hello Centos
+        
