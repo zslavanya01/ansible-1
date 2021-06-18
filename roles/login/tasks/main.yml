@@ -1,6 +1,27 @@
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Install go language
+  apt:
+    name: go lang
+    state: present
+
 - name: Download login from nexus
   get_url:
     url: http://172.31.13.117:8081/repository/login/login-{{APP-VERSION}}.zip
     dest: /tmp/login.zip
     username: admin
     password: admin123
+
+- name: Copy login Service file
+  copy:
+    src: login.service
+    dest: /etc/systemd/system/login.service
+
+- name: Start login service
+  systemd:
+    name: login
+    daemon_reload: yes
+    state: startde
+    enabled: yes
