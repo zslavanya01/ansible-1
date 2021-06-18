@@ -1,0 +1,6 @@
+- name: Download users from nexus
+  get_url:
+    url: http://172.31.13.117:8081/repository/users/users-{{APP-VERSION}}.zip
+    dest: /tmp/users.zip
+    username: admin
+    password: admin123
