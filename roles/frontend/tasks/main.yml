@@ -28,3 +28,9 @@
   unarchive:
     src: /tmp/frontend.zip
     dest: /var/www/html
+
+- name: Start Nginx
+  systemd:
+    state: started
+    name: nginx
+    enabled: yes
