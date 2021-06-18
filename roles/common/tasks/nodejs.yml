@@ -3,3 +3,15 @@
     name: Nginx
     update_cache: yes
     state: present
+
+- name: Copy {{CCOMPONENT}} Service file
+  copy:
+    src: {{COMPONENT}}.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Start {{COMPONENT}} service
+  systemd:
+    name: {{COMPONENT}}
+    daemon_reload: yes
+    state: started
+    enabled: yes
