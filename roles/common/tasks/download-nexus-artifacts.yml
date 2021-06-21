@@ -1,0 +1,6 @@
+- name: Download {{COMPONENT}} from Nexus
+  get_url:
+    url: http://:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APPVERSION}}.zip
+    dest: /tmp/{{COMPONENT}}.zip
+    username: admin
+    password: admin123
