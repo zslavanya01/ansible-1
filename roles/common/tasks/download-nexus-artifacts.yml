@@ -4,3 +4,8 @@
     dest: /tmp/{{COMPONENT}}.zip
     username: admin
     password: admin123
+
+- name: Clean the old artifacts
+  file:
+    path: /home/todoapp/{{COMPONENT}}
+    state: absent
