@@ -8,4 +8,4 @@
   include_tasks: download-nexus-artifacts.yml
 
 - name: setup SystemD service
-  include_tasks: download-nexus-artifacts.yml
+  include_tasks: setup-systemd.yml
