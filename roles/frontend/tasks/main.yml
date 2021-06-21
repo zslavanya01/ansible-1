@@ -1,48 +1,5 @@
-- name: Install Nginx
-  apt:
-    name: Nginx
-    update_cache: yes
-    state: present
-
-- name: Install NPM
-  apt:
-    name: npm 
-    state: present
-    update_cache: yes
-
-- name: Install nodejs
-  apt:
-    name: nodejs
-    state: present
-
-
-- name: Download frontend from nexus
-  get_url:
-    url: http://172.31.13.117:8081/repository/frontend/frontend-{{APP-VERSION}}.zip
-    dest: /tmp/frontend.zip
-    username: admin
-    password: admin123
-
-- name: Delete the default content
-  file:
-    path: "{{ item }}"
-    state: absent
-  loop:
-    - /etc/nginx/sites-enabled/default
-    - root /var/www/html/todo/frontend/dist
-
-- name: Create HTdocs Directory
-  file:
-    path: /var/www/html
-    state: directory
-
-- name: Unzip the download content
-  unarchive:
-    src: /tmp/frontend.zip
-    dest: /var/www/html
-
-- name: Start Nginx
-  systemd:
-    state: started
-    name: nginx
-    enabled: yes
+- name: Import nodejs common role
+  include_role: 
+    name: common
+    tasks_from: nodejs
+    
