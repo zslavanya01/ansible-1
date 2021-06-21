@@ -1,17 +1,11 @@
-- name: Install Nginx
+- name: Install Npm
   apt:
-    name: Nginx
+    name: npm
     update_cache: yes
     state: present
 
-- name: Copy {{COMPONENT}} Service file
-  copy:
-    src: {{COMPONENT}}.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+- name: Download Artificats from Nexus
+  include_tasks: download-nexus-artifacts.yml
 
-- name: Start {{COMPONENT}} service
-  systemd:
-    name: {{COMPONENT}}
-    daemon_reload: yes
-    state: started
-    enabled: yes
+- name: setup SystemD service
+  include_tasks: download-nexus-artifacts.yml
